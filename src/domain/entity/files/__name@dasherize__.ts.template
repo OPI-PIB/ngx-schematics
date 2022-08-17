@@ -1,0 +1,21 @@
+import { always, Entity } from '@opi-pib/ts-utility';
+
+import { Uuid } from '../uuid/uuid';
+import { <%= classify(name) %>Props } from './<%= dasherize(name) %>-props';
+import { is<%= classify(name) %>Props } from './is-<%= dasherize(name) %>-props';
+
+export class <%= classify(name) %> extends Entity<<%= classify(name) %>Props> {
+	constructor(protected readonly props: <%= classify(name) %>Props) {
+		super(props);
+	}
+
+	static create(props: <%= classify(name) %>Props): <%= classify(name) %> {
+		always(is<%= classify(name) %>Props(props), '');
+
+		return new <%= classify(name) %>(props);
+	}
+
+	get id(): Uuid {
+		return this.props.id;
+	}
+}

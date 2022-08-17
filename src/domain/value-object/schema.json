@@ -1,0 +1,34 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"$id": "ValueObjectSchematic",
+	"title": "Create a value object",
+	"type": "object",
+	"properties": {
+		"path": {
+			"type": "string",
+			"format": "path",
+			"description": "The path to create the schematic within.",
+			"visible": false
+		},
+		"name": {
+			"description": "Specifies the name of the generated files.",
+			"type": "string",
+			"$default": {
+				"$source": "argv",
+				"index": 0
+			}
+		},
+		"project": {
+			"type": "string",
+			"description": "The name of the project.",
+			"$default": {
+				"$source": "projectName"
+			}
+		},
+		"flat": {
+			"type": "boolean",
+			"description": "When true, creates the new files at the top level of the current project.",
+			"default": false
+		}
+	}
+}
