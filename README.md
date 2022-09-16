@@ -1,10 +1,10 @@
-# @opi-pib/ngx-schematics
+# @opi_pib/ngx-schematics
 
 Schematics for angular projects
 
 ## install
 
-npm i -g @opi-pib/ngx-schematics
+npm i -g @opi_pib/ngx-schematics
 
 ## domain
 
@@ -13,7 +13,7 @@ npm i -g @opi-pib/ngx-schematics
 Generate files for entity
 
 ```typescript
-ng generate @opi-pib/ngx-schematics:entity --name=uuid
+ng generate @opi_pib/ngx-schematics:entity --name=uuid
 ```
 
 ### value-object
@@ -21,5 +21,5 @@ ng generate @opi-pib/ngx-schematics:entity --name=uuid
 Generate files for value object
 
 ```typescript
-ng generate @opi-pib/ngx-schematics:value-object --name=user
+ng generate @opi_pib/ngx-schematics:value-object --name=user
 ```
