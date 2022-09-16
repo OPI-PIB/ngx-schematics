@@ -1,4 +1,4 @@
-import { always, Entity } from '@opi-pib/ts-utility';
+import { always, Entity } from '@opi_pib/ts-utility';
 
 import { Uuid } from '../uuid/uuid';
 import { <%= classify(name) %>Props } from './<%= dasherize(name) %>-props';

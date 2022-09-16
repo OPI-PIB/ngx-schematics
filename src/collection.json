@@ -4,7 +4,7 @@
 		"init": {
 			"factory": "./init/schematic",
 			"schema": "./init/schema.json",
-			"description": "Initialize the @opi-pib/ngx-schematics plugin",
+			"description": "Initialize the @opi_pib/ngx-schematics plugin",
 			"aliases": ["ng-add"],
 			"hidden": true
 		},

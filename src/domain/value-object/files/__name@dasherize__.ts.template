@@ -1,4 +1,4 @@
-import { always, ValueObject } from '@opi-pib/ts-utility';
+import { always, ValueObject } from '@opi_pib/ts-utility';
 
 import { <%= classify(name) %>Props } from './<%= dasherize(name) %>-props';
 import { is<%= classify(name) %>Props } from './is-<%= dasherize(name) %>-props';

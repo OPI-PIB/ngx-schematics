@@ -3,7 +3,7 @@ import { SchematicsException, Tree } from '@angular-devkit/schematics';
 import { normalize } from '@angular-devkit/core';
 import { getWorkspace } from '@schematics/angular/utility/workspace';
 import { ProjectDefinition, WorkspaceDefinition } from '@angular-devkit/core/src/workspace';
-import { isDefined, Maybe } from '@opi-pib/ts-utility';
+import { isDefined, Maybe } from '@opi_pib/ts-utility';
 
 import { Options } from './options';
 import { SchemaOptions } from './schema-options';

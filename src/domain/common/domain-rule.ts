@@ -2,7 +2,7 @@ import {
 	Rule, SchematicContext, Tree, apply, url, move, mergeWith, applyTemplates, MergeStrategy,
 } from '@angular-devkit/schematics';
 import { normalize, strings } from '@angular-devkit/core';
-import { isDefined, Maybe } from '@opi-pib/ts-utility';
+import { isDefined, Maybe } from '@opi_pib/ts-utility';
 
 import { SchemaOptions } from './schema-options';
 import { Options } from './options';
