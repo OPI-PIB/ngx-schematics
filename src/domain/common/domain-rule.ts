@@ -2,7 +2,7 @@ import {
 	Rule, SchematicContext, Tree, apply, url, move, mergeWith, applyTemplates, MergeStrategy,
 } from '@angular-devkit/schematics';
 import { normalize, strings } from '@angular-devkit/core';
-import { isDefined, Maybe } from '@opi_pib/ts-utility';
+import { Is, Maybe } from '@opi_pib/ts-utility';
 
 import { SchemaOptions } from './schema-options';
 import { Options } from './options';
@@ -17,7 +17,7 @@ export default async function getDomainRule(
 
 	let movePath: string = '';
 
-	if (isDefined(options)) {
+	if (Is.defined(options)) {
 		movePath = options.flat ? normalize(options.path || '') : normalize(`${options.path}/${strings.dasherize(options.name)}`);
 	}
 
