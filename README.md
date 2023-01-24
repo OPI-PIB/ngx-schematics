@@ -2,11 +2,13 @@
 
 Schematics for angular projects
 
-## install
+## Install
 
+```
 npm i -g @opi_pib/ngx-schematics
+```
 
-## domain
+## Domain
 
 ### entity
 
