@@ -1,13 +1,16 @@
 import * as path from 'path';
 
-import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
+import {
+	SchematicTestRunner,
+	UnitTestTree,
+} from '@angular-devkit/schematics/testing';
 import { Schema as WorkspaceOptions } from '@schematics/angular/workspace/schema';
 import { Schema as ApplicationOptions } from '@schematics/angular/application/schema';
 
 const workspaceOptions: WorkspaceOptions = {
 	name: 'workspace',
 	newProjectRoot: 'projects',
-	version: '6.0.0',
+	version: '16.0.0',
 };
 
 const appOptions: ApplicationOptions = {
@@ -22,12 +25,25 @@ describe('entity', () => {
 
 	beforeEach(async () => {
 		testRunner = new SchematicTestRunner('schematics', collectionPath);
-		appTree = await testRunner.runExternalSchematicAsync('@schematics/angular', 'workspace', workspaceOptions).toPromise();
-		appTree = await testRunner.runExternalSchematicAsync('@schematics/angular', 'application', appOptions, appTree).toPromise();
+		appTree = await testRunner.runExternalSchematic(
+			'@schematics/angular',
+			'workspace',
+			workspaceOptions,
+		);
+		appTree = await testRunner.runExternalSchematic(
+			'@schematics/angular',
+			'application',
+			appOptions,
+			appTree,
+		);
 	});
 
 	it('works', async () => {
-		const tree = await testRunner.runSchematicAsync('entity', { name: 'user' }, appTree).toPromise();
+		const tree = await testRunner.runSchematic(
+			'entity',
+			{ name: 'user' },
+			appTree,
+		);
 
 		const expectedFiles = [
 			'/projects/entity/src/user/is-user-props.ts',
@@ -36,11 +52,17 @@ describe('entity', () => {
 			'/projects/entity/src/user/index.ts',
 		];
 
-		expect(expectedFiles.every((file) => tree.files.includes(file))).toBe(true);
+		expect(expectedFiles.every((file) => tree.files.includes(file))).toBe(
+			true,
+		);
 	});
 
 	it('works with path', async () => {
-		const tree = await testRunner.runSchematicAsync('entity', { name: 'user', path: 'src/custom' }, appTree).toPromise();
+		const tree = await testRunner.runSchematic(
+			'entity',
+			{ name: 'user', path: 'src/custom' },
+			appTree,
+		);
 
 		const expectedFiles = [
 			'/projects/entity/src/custom/user/is-user-props.ts',
@@ -49,6 +71,8 @@ describe('entity', () => {
 			'/projects/entity/src/custom/user/index.ts',
 		];
 
-		expect(expectedFiles.every((file) => tree.files.includes(file))).toBe(true);
+		expect(expectedFiles.every((file) => tree.files.includes(file))).toBe(
+			true,
+		);
 	});
 });

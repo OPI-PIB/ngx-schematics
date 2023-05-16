@@ -22,12 +22,12 @@ describe('value-object', () => {
 
 	beforeEach(async () => {
 		testRunner = new SchematicTestRunner('schematics', collectionPath);
-		appTree = await testRunner.runExternalSchematicAsync('@schematics/angular', 'workspace', workspaceOptions).toPromise();
-		appTree = await testRunner.runExternalSchematicAsync('@schematics/angular', 'application', appOptions, appTree).toPromise();
+		appTree = await testRunner.runExternalSchematic('@schematics/angular', 'workspace', workspaceOptions);
+		appTree = await testRunner.runExternalSchematic('@schematics/angular', 'application', appOptions, appTree);
 	});
 
 	it('works', async () => {
-		const tree = await testRunner.runSchematicAsync('value-object', { name: 'uuid' }, appTree).toPromise();
+		const tree = await testRunner.runSchematic('value-object', { name: 'uuid' }, appTree);
 
 		const expectedFiles = [
 			'/projects/value-object/src/uuid/is-uuid-props.ts',
@@ -40,7 +40,7 @@ describe('value-object', () => {
 	});
 
 	it('works with path', async () => {
-		const tree = await testRunner.runSchematicAsync('value-object', { name: 'uuid', path: 'src/custom' }, appTree).toPromise();
+		const tree = await testRunner.runSchematic('value-object', { name: 'uuid', path: 'src/custom' }, appTree);
 
 		const expectedFiles = [
 			'/projects/value-object/src/custom/uuid/is-uuid-props.ts',
