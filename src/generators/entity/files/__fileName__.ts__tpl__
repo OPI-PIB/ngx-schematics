@@ -1,0 +1,21 @@
+import { always, Entity } from '@opi_pib/ts-utility';
+
+import { Uuid } from '../uuid/uuid';
+import { <%= className %>Props } from './<%= fileName %>-props';
+import { is<%= className %>Props } from './is-<%= fileName %>-props';
+
+export class <%= className %> extends Entity<<%= className %>Props> {
+	constructor(protected override readonly props: <%= className %>Props) {
+		super(props);
+	}
+
+	static create(props: <%= className %>Props): <%= className %> {
+		always(is<%= className %>Props(props), '');
+
+		return new <%= className %>(props);
+	}
+
+	get id(): Uuid {
+		return this.props.id;
+	}
+}
