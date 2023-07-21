@@ -1,5 +1,0 @@
-import { <%= classify(name) %>Props, <%= classify(name) %>PropsSchema } from './<%= dasherize(name) %>-props';
-
-export const is<%= classify(name) %>Props = (
-	obj: unknown
-): obj is <%= classify(name) %>Props => <%= classify(name) %>PropsSchema.safeParse(obj).success;

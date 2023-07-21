@@ -1,41 +1,42 @@
 {
 	"name": "@opi_pib/ngx-schematics",
-	"version": "16.0.0",
+	"version": "16.1.0",
 	"description": "schematics",
 	"scripts": {
-		"build": "tsc -p tsconfig.json",
-		"test": "jest --detectOpenHandles",
-		"lint": "eslint --ignore-path .gitignore **/*.ts --fix"
+		"build": "nx build",
+		"test": "nx test"
 	},
-	"keywords": [
-		"schematics"
-	],
-	"author": "Dawid Lubowiecki",
-	"license": "MIT",
-	"schematics": "./src/collection.json",
 	"dependencies": {
-		"@angular-devkit/core": "^16.0.0",
-		"@angular-devkit/schematics": "^16.0.0",
+		"@nx/devkit": "16.5.3",
 		"@opi_pib/ts-utility": "^1.1.7",
-		"@schematics/angular": "^16.0.0",
-		"rxjs": "~7.8.0",
-		"typescript": "~5.0.2",
-		"zod": "^3.21.4"
+		"@swc/helpers": "~0.5.0",
+		"tslib": "^2.3.0"
 	},
 	"devDependencies": {
+		"@nx/eslint-plugin": "16.5.3",
+		"@nx/jest": "16.5.3",
+		"@nx/js": "16.5.3",
+		"@nx/linter": "16.5.3",
+		"@nx/plugin": "16.5.3",
+		"@nx/workspace": "16.5.3",
 		"@opi_pib/eslint-config-base": "^1.0.9",
-		"@nrwl/workspace": "^16.1.4",
-		"@types/jest": "^29.5.1",
-		"@types/node": "^20.1.5",
-		"@typescript-eslint/eslint-plugin": "^5.59.6",
-		"eslint": "^8.40.0",
-		"eslint-plugin-import": "^2.27.5",
-		"eslint-plugin-jest": "^27.2.1",
-		"jest": "^29.5.0",
-		"ts-jest": "^29.1.0"
+		"@swc-node/register": "~1.4.2",
+		"@swc/cli": "~0.1.62",
+		"@swc/core": "~1.3.51",
+		"@types/jest": "^29.4.0",
+		"@types/node": "18.7.1",
+		"@typescript-eslint/eslint-plugin": "^5.60.1",
+		"@typescript-eslint/parser": "^5.60.1",
+		"eslint": "~8.45.0",
+		"eslint-config-prettier": "8.8.0",
+		"jest": "^29.4.1",
+		"jest-environment-jsdom": "^29.4.1",
+		"nx": "16.5.3",
+		"prettier": "^2.6.2",
+		"ts-jest": "^29.1.0",
+		"ts-node": "10.9.1",
+		"typescript": "~5.1.3"
 	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/OPI-PIB/ngx-schematics.git"
-	}
+	"type": "commonjs",
+	"generators": "./generators.json"
 }

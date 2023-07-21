@@ -1,0 +1,5 @@
+import { <%= className %>Props, <%= className %>PropsSchema } from './<%= fileName %>-props';
+
+export const is<%= className %>Props = (
+	obj: unknown
+): obj is <%= className %>Props => <%= className %>PropsSchema.safeParse(obj).success;

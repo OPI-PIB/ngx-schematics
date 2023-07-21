@@ -1,0 +1,5 @@
+import { z } from 'zod';
+
+export const <%= className %>PropsSchema = z.object({});
+
+export type <%= className %>Props = z.infer<typeof <%= className %>PropsSchema>;

@@ -1,3 +1,0 @@
-export * from './<%= dasherize(name) %>';
-export * from './<%= dasherize(name) %>-props';
-export * from './is-<%= dasherize(name) %>-props';
