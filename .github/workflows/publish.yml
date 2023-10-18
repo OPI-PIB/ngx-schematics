@@ -23,8 +23,6 @@ jobs:
       - name: Build
         run: npm run build
       - name: Publish to npm
-        run: |
-          cd dist/ngx-schematics
-          npm publish --provenance
+        run: npm publish --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
