@@ -12,7 +12,7 @@ import { NormalizedOptionsSchema, OptionsSchema } from './options-schema';
 
 export function normalizeOptions(
 	tree: Tree,
-	options: OptionsSchema
+	options: OptionsSchema,
 ): NormalizedOptionsSchema {
 	always(Is.string(options.name), 'Name is required');
 	const generatorNames = names(options.name);
@@ -35,7 +35,7 @@ export function normalizeOptions(
 
 	const directory = joinPathFragments(
 		options.flat === true ? projectSourceRoot : path,
-		generatorNames.fileName
+		generatorNames.fileName,
 	);
 
 	return {

@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "InitSchematic",
+  "title": "Initialize the @opi_pib/ngx-schematics plugin",
+  "type": "object",
+  "properties": {
+    "skipInstall": {
+      "type": "boolean",
+      "description": "Skip installing after adding @nrwl/workspace",
+      "default": false
+    }
+  }
+}
