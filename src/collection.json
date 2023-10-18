@@ -1,20 +1,22 @@
 {
-  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
-  "schematics": {
-    "init": {
-      "factory": "./init/schematic",
-      "schema": "./init/schema.json",
-      "description": "Initialize the @opi_pib/ngx-schematics plugin",
-      "aliases": ["ng-add"],
-      "hidden": true
-    },
-    "entity": {
-      "description": "entity generator",
-      "factory": "./entity/index#entity"
-    },
-    "value-object": {
-      "description": "value-object generator",
-      "factory": "./value-object/index#valueObject"
-    }
-  }
+	"$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+	"schematics": {
+		"init": {
+			"factory": "./init/schematic",
+			"schema": "./init/schema.json",
+			"description": "Initialize the @opi_pib/ngx-schematics plugin",
+			"aliases": ["ng-add"],
+			"hidden": true
+		},
+		"entity": {
+			"description": "Create an entity",
+			"factory": "./domain/entity/index",
+			"schema": "./domain/entity/schema.json"
+		},
+		"value-object": {
+			"description": "Create a value object",
+			"factory": "./domain/value-object/index",
+			"schema": "./domain/value-object/schema.json"
+		}
+	}
 }

@@ -1,9 +1,0 @@
-import { z } from 'zod';
-
-import { Uuid } from '../uuid/uuid';
-
-export const <%= className %>PropsSchema = z.object({
-	id: z.instanceof(Uuid),
-});
-
-export type <%= className %>Props = z.infer<typeof <%= className %>PropsSchema>;
