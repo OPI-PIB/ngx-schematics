@@ -1,14 +1,11 @@
 import * as path from 'path';
 
-import { formatFiles, generateFiles, Tree } from '@nx/devkit';
-
+import { type Tree } from '@nx/devkit';
 import { OptionsSchema } from '../core/options-schema';
 import { normalizeOptions } from '../core/normalize-options';
+import { formatFiles, generateFiles } from '@nx/devkit';
 
-export async function valueObjectGenerator(
-	tree: Tree,
-	rawOptions: OptionsSchema
-) {
+export async function valueObject(tree: Tree, rawOptions: OptionsSchema) {
 	const options = normalizeOptions(tree, rawOptions);
 
 	generateFiles(tree, path.join(__dirname, 'files'), options.directory, {
@@ -19,5 +16,3 @@ export async function valueObjectGenerator(
 
 	await formatFiles(tree);
 }
-
-export default valueObjectGenerator;

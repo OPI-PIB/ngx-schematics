@@ -5,7 +5,7 @@ Schematics for angular projects
 ## Install
 
 ```
-npm i -g @opi_pib/ngx-schematics
+ng add @opi_pib/ngx-schematics
 ```
 
 ## Domain
