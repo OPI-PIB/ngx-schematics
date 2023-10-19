@@ -8,11 +8,7 @@ import { SchemaOptions } from './schema-options';
 import { Options } from './options';
 import getSetupOptions from './setup-options';
 
-export default async function getDomainRule(
-	tree: Tree,
-	_context: SchematicContext,
-	_options: SchemaOptions,
-): Promise<void | Rule> {
+export default async function getDomainRule(tree: Tree, _context: SchematicContext, _options: SchemaOptions): Promise<void | Rule> {
 	const options: Maybe<Options> = await getSetupOptions(tree, _options);
 
 	let movePath: string = '';

@@ -1,8 +1,9 @@
 {
-	"$schema": "http://json-schema.org/schema",
+	"$schema": "http://json-schema.org/draft-07/schema",
 	"id": "InitSchematic",
 	"title": "Initialize the @opi_pib/ngx-schematics plugin",
 	"type": "object",
+	"additionalProperties": false,
 	"properties": {
 		"skipInstall": {
 			"type": "boolean",
