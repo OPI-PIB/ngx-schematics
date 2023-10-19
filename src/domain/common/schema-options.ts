@@ -1,6 +1,6 @@
 export interface SchemaOptions {
 	name: string;
-	path?: string;
 	project?: string;
+	path?: string;
 	flat?: boolean;
 }
