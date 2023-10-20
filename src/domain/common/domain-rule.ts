@@ -1,6 +1,4 @@
-import {
-	Rule, SchematicContext, Tree, apply, url, move, mergeWith, applyTemplates, MergeStrategy,
-} from '@angular-devkit/schematics';
+import { Rule, SchematicContext, Tree, apply, url, move, mergeWith, applyTemplates, MergeStrategy } from '@angular-devkit/schematics';
 import { normalize, strings } from '@angular-devkit/core';
 import { Is, Maybe } from '@opi_pib/ts-utility';
 

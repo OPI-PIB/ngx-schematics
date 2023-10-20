@@ -1,9 +1,6 @@
 import * as path from 'path';
 
-import {
-	SchematicTestRunner,
-	UnitTestTree,
-} from '@angular-devkit/schematics/testing';
+import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
 import { Schema as WorkspaceOptions } from '@schematics/angular/workspace/schema';
 import { Schema as ApplicationOptions } from '@schematics/angular/application/schema';
 
@@ -25,25 +22,12 @@ describe('entity', () => {
 
 	beforeEach(async () => {
 		testRunner = new SchematicTestRunner('schematics', collectionPath);
-		appTree = await testRunner.runExternalSchematic(
-			'@schematics/angular',
-			'workspace',
-			workspaceOptions,
-		);
-		appTree = await testRunner.runExternalSchematic(
-			'@schematics/angular',
-			'application',
-			appOptions,
-			appTree,
-		);
+		appTree = await testRunner.runExternalSchematic('@schematics/angular', 'workspace', workspaceOptions);
+		appTree = await testRunner.runExternalSchematic('@schematics/angular', 'application', appOptions, appTree);
 	});
 
 	it('works', async () => {
-		const tree = await testRunner.runSchematic(
-			'entity',
-			{ name: 'user' },
-			appTree,
-		);
+		const tree = await testRunner.runSchematic('entity', { name: 'user' }, appTree);
 
 		const expectedFiles = [
 			'/projects/entity/src/user/is-user-props.ts',
@@ -52,17 +36,11 @@ describe('entity', () => {
 			'/projects/entity/src/user/index.ts',
 		];
 
-		expect(expectedFiles.every((file) => tree.files.includes(file))).toBe(
-			true,
-		);
+		expect(expectedFiles.every((file) => tree.files.includes(file))).toBe(true);
 	});
 
 	it('works with path', async () => {
-		const tree = await testRunner.runSchematic(
-			'entity',
-			{ name: 'user', path: 'src/custom' },
-			appTree,
-		);
+		const tree = await testRunner.runSchematic('entity', { name: 'user', path: 'src/custom' }, appTree);
 
 		const expectedFiles = [
 			'/projects/entity/src/custom/user/is-user-props.ts',
@@ -71,8 +49,6 @@ describe('entity', () => {
 			'/projects/entity/src/custom/user/index.ts',
 		];
 
-		expect(expectedFiles.every((file) => tree.files.includes(file))).toBe(
-			true,
-		);
+		expect(expectedFiles.every((file) => tree.files.includes(file))).toBe(true);
 	});
 });
