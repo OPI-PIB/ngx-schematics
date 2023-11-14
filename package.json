@@ -1,6 +1,6 @@
 {
 	"name": "@opi_pib/ngx-schematics",
-	"version": "16.2.2",
+	"version": "17.0.0",
 	"description": "schematics",
 	"scripts": {
 		"build": "tsc -p tsconfig.json",
@@ -14,23 +14,23 @@
 	"license": "MIT",
 	"schematics": "./src/collection.json",
 	"dependencies": {
-		"@angular-devkit/core": "^16.0.0",
-		"@angular-devkit/schematics": "^16.0.0",
-		"@opi_pib/ts-utility": "1.1.12",
-		"@schematics/angular": "^16.0.0",
+		"@angular-devkit/core": "^17.0.0",
+		"@angular-devkit/schematics": "^17.0.0",
+		"@opi_pib/ts-utility": "1.1.13",
+		"@schematics/angular": "^17.0.0",
 		"rxjs": "~7.8.0",
-		"typescript": "~5.0.2",
+		"typescript": "~5.2.2",
 		"zod": "^3.22.4"
 	},
 	"devDependencies": {
-		"@nrwl/workspace": "^16.10.0",
-		"@opi_pib/eslint-config-base": "1.0.16",
-		"@types/jest": "^29.5.6",
-		"@types/node": "^20.8.7",
-		"@typescript-eslint/eslint-plugin": "^6.8.0",
-		"eslint": "^8.51.0",
+		"@nrwl/workspace": "^17.0.0",
+		"@opi_pib/eslint-config-base": "1.0.17",
+		"@types/jest": "^29.5.8",
+		"@types/node": "^20.9.0",
+		"@typescript-eslint/eslint-plugin": "^6.11.00",
+		"eslint": "^8.53.0",
 		"eslint-config-prettier": "^9.0.0",
-		"eslint-plugin-jest": "^27.4.2",
+		"eslint-plugin-jest": "^27.6.0",
 		"jest": "^29.7.0",
 		"ts-jest": "^29.1.1"
 	},
