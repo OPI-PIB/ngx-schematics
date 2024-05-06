@@ -1,6 +1,6 @@
 {
 	"name": "@opi_pib/ngx-schematics",
-	"version": "17.0.1",
+	"version": "17.0.2",
 	"description": "schematics",
 	"scripts": {
 		"build": "tsc -p tsconfig.json",
@@ -16,7 +16,7 @@
 	"dependencies": {
 		"@angular-devkit/core": "^17.0.0",
 		"@angular-devkit/schematics": "^17.0.0",
-		"@opi_pib/ts-utility": "1.1.14",
+		"@opi_pib/ts-utility": "^1.1.0",
 		"@schematics/angular": "^17.0.0",
 		"rxjs": "~7.8.0",
 		"typescript": "~5.3.2",
@@ -24,7 +24,7 @@
 	},
 	"devDependencies": {
 		"@nrwl/workspace": "^17.0.0",
-		"@opi_pib/eslint-config-base": "1.0.18",
+		"@opi_pib/eslint-config-base": "^1.0.0",
 		"@types/jest": "^29.5.12",
 		"@types/node": "^20.11.20",
 		"@typescript-eslint/eslint-plugin": "^7.0.2",
