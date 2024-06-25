@@ -9,7 +9,7 @@ import getSetupOptions from './setup-options';
 export default async function getDomainRule(tree: Tree, _context: SchematicContext, _options: SchemaOptions): Promise<void | Rule> {
 	const options: Maybe<Options> = await getSetupOptions(tree, _options);
 
-	let movePath: string = '';
+	let movePath = '';
 
 	if (Is.defined(options)) {
 		movePath = options.flat ? normalize(options.path || '') : normalize(`${options.path}/${strings.dasherize(options.name)}`);
