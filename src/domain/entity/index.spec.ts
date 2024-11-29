@@ -7,7 +7,7 @@ import { Schema as ApplicationOptions } from '@schematics/angular/application/sc
 const workspaceOptions: WorkspaceOptions = {
 	name: 'workspace',
 	newProjectRoot: 'projects',
-	version: '16.0.0',
+	version: '19.0.0',
 };
 
 const appOptions: ApplicationOptions = {
