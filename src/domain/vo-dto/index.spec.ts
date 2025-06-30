@@ -11,12 +11,12 @@ const workspaceOptions: WorkspaceOptions = {
 };
 
 const appOptions: ApplicationOptions = {
-	name: 'voDto',
+	name: 'vo-dto',
 };
 
 const collectionPath: string = path.join(__dirname, '../../collection.json');
 
-describe('voDto', () => {
+describe('vo-dto', () => {
 	let appTree: UnitTestTree;
 	let testRunner: SchematicTestRunner;
 
@@ -27,7 +27,7 @@ describe('voDto', () => {
 	});
 
 	it('works', async () => {
-		const tree = await testRunner.runSchematic('voDto', { dto: 'UserDto' }, appTree);
+		const tree = await testRunner.runSchematic('vo-dto', { dto: 'UserDto' }, appTree);
 
 		const expectedFiles = [
 			'/projects/vo-dto/src/user-impl/is-user-impl-props.ts',
@@ -40,7 +40,7 @@ describe('voDto', () => {
 	});
 
 	it('works with path', async () => {
-		const tree = await testRunner.runSchematic('voDto', { dto: 'UserDto', path: 'src/custom' }, appTree);
+		const tree = await testRunner.runSchematic('vo-dto', { dto: 'UserDto', path: 'src/custom' }, appTree);
 
 		const expectedFiles = [
 			'/projects/vo-dto/src/custom/user-impl/is-user-impl-props.ts',

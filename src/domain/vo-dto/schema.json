@@ -39,7 +39,7 @@
 			"description": "When true, creates the new files at the top level of the current project.",
 			"default": false
 		},
-		"dtosPath": {
+		"dir": {
 			"type": "string",
 			"description": "Path to directory with dtos.",
 			"default": "src/api"
