@@ -17,6 +17,11 @@
 			"description": "Create a value object",
 			"factory": "./domain/value-object/index",
 			"schema": "./domain/value-object/schema.json"
+		},
+		"voDto": {
+			"description": "Create a value object from dto",
+			"factory": "./domain/voDto/index",
+			"schema": "./domain/voDto/schema.json"
 		}
 	}
 }
