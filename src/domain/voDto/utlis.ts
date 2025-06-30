@@ -5,12 +5,12 @@ import { PropertySignature, SyntaxKind, Type } from 'ts-morph';
 
 export function trimDefinition(value: string) {
 	return value
-		.replace('[]', '')
-		.replace('Array<', '')
-		.replace('>', '')
-		.replace('null', '')
-		.replace('undefined', '')
-		.replace('|', '')
+		.replace(/\[\]/g, '')
+		.replace(/Array</g, '')
+		.replace(/>/g, '')
+		.replace(/null/g, '')
+		.replace(/undefined/g, '')
+		.replace(/\|/g, '')
 		.trim();
 }
 
