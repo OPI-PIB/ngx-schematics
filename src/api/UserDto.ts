@@ -1,3 +1,5 @@
+import { AdressDto } from './AdressDto';
+
 export interface UserDto {
 	firstname: string;
 	midname: string | null;

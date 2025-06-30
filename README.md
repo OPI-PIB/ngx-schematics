@@ -8,6 +8,16 @@ Schematics for angular projects
 npm i -g @opi_pib/ngx-schematics
 ```
 
+You can add schematics to angular.json
+
+```
+	"cli": {
+		"schematicCollections": [
+			"@opi_pib/ngx-schematics"
+		]
+	}
+```
+
 ## Domain
 
 ### entity
@@ -15,7 +25,13 @@ npm i -g @opi_pib/ngx-schematics
 Generate files for entity
 
 ```typescript
-ng generate @opi_pib/ngx-schematics:entity --name=uuid
+ng g @opi_pib/ngx-schematics:entity --name=uuid
+```
+
+or
+
+```typescript
+ng g entity --name=uuid
 ```
 
 ### value-object
@@ -23,5 +39,25 @@ ng generate @opi_pib/ngx-schematics:entity --name=uuid
 Generate files for value object
 
 ```typescript
-ng generate @opi_pib/ngx-schematics:value-object --name=user
+ng g @opi_pib/ngx-schematics:vo --name=user
+```
+
+or
+
+```typescript
+ng g vo --name=user
+```
+
+### value-object from Dto
+
+Generate files for value object from dto
+
+```typescript
+ng g @opi_pib/ngx-schematics:voDto --dto=UserDto
+```
+
+or
+
+```typescript
+ng g voDto --dto=UserDto
 ```

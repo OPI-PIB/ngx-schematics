@@ -11,5 +11,4 @@ export interface Options {
 	path: Path;
 	flat: boolean;
 	dtosPath: string;
-	props: Prop[];
 }

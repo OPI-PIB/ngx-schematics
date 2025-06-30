@@ -25,12 +25,7 @@
 		},
 		"name": {
 			"description": "Specifies the name of the generated files.",
-			"type": "string",
-			"$default": {
-				"$source": "argv",
-				"index": 1
-			},
-			"x-prompt": "What name would you like to use for the value object?"
+			"type": "string"
 		},
 		"project": {
 			"type": "string",
@@ -50,5 +45,5 @@
 			"default": "src/api"
 		}
 	},
-	"required": ["dto", "name"]
+	"required": ["dto"]
 }

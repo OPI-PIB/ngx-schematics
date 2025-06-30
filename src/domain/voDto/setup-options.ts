@@ -7,6 +7,7 @@ import { Is, Maybe } from '@opi_pib/ts-utility';
 
 import { Options } from './options';
 import { SchemaOptions } from './schema-options';
+import { transformName } from './utlis';
 
 function getProject(workspace: WorkspaceDefinition, projectName = [...workspace.projects.keys()][0]): Maybe<ProjectDefinition> {
 	const project: Maybe<ProjectDefinition> = workspace.projects.get(projectName);
@@ -29,7 +30,7 @@ export default async function getSetupOptions(tree: Tree, options: SchemaOptions
 
 	if (Is.defined(project)) {
 		const path: string = getPath(project, options.path);
-		const location: Location = parseName(path, options.name);
+		const location: Location = parseName(path, Is.string(options.name) ? options.name : transformName(options.dto));
 
 		setupOptions = {
 			dto: options.dto,

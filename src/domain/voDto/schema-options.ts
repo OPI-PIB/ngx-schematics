@@ -1,6 +1,6 @@
 export interface SchemaOptions {
 	dto: string;
-	name: string;
+	name?: string;
 	project?: string;
 	path?: string;
 	dtosPath: string;
