@@ -19,8 +19,8 @@ export class <%= classify(name) %> extends ValueObject<<%= classify(name) %>Prop
 	}
 
 <% for (const prop of properties) { %>
-	get <%= prop.name %>() {
-		return this.props.<%= prop.name %>;
+	get <%- prop.name.replace(/^['"]|['"]$/g, '') %>() {
+		return this.props.<%- prop.name.replace(/^['"]|['"]$/g, '') %>;
 	}
 <% } %>
 }

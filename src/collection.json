@@ -18,7 +18,7 @@
 			"factory": "./domain/vo/index",
 			"schema": "./domain/vo/schema.json"
 		},
-		"voDto": {
+		"vo-dto": {
 			"description": "Create a value object from dto",
 			"factory": "./domain/vo-dto/index",
 			"schema": "./domain/vo-dto/schema.json"

@@ -53,11 +53,11 @@ ng g vo --name=user
 Generate files for value object from dto
 
 ```typescript
-ng g @opi_pib/ngx-schematics:voDto --dto=UserDto
+ng g @opi_pib/ngx-schematics:vo-dto --dto=UserDto
 ```
 
 or
 
 ```typescript
-ng g voDto --dto=UserDto
+ng g vo-dto UserDto
 ```
