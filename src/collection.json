@@ -20,8 +20,8 @@
 		},
 		"voDto": {
 			"description": "Create a value object from dto",
-			"factory": "./domain/voDto/index",
-			"schema": "./domain/voDto/schema.json"
+			"factory": "./domain/vo-dto/index",
+			"schema": "./domain/vo-dto/schema.json"
 		}
 	}
 }

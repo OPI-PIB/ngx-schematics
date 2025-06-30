@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const <%= classify(name) %>PropsSchema = z.object({
 	<% for (const prop of properties) { %>
-		<%= prop.name %>: null,
+		<%= prop.name %>: <%= prop.typeDef %>,
 	<% } %>
 });
 
