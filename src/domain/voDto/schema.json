@@ -1,7 +1,7 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema",
-	"$id": "ValueObjectSchematic",
-	"title": "Create a value object",
+	"$id": "ValueObjectFromDtoSchematic",
+	"title": "Create a value object from dto",
 	"type": "object",
 	"additionalProperties": false,
 	"properties": {
@@ -14,14 +14,18 @@
 				"$source": "workingDirectory"
 			}
 		},
-		"name": {
-			"description": "Specifies the name of the generated files.",
+		"dto": {
+			"description": "Specifies the name of the dto to generate from.",
 			"type": "string",
 			"$default": {
 				"$source": "argv",
 				"index": 0
 			},
-			"x-prompt": "What name would you like to use for the entity?"
+			"x-prompt": "What is the name of your dto?"
+		},
+		"name": {
+			"description": "Specifies the name of the generated files.",
+			"type": "string"
 		},
 		"project": {
 			"type": "string",
@@ -34,7 +38,12 @@
 			"type": "boolean",
 			"description": "When true, creates the new files at the top level of the current project.",
 			"default": false
+		},
+		"dtosPath": {
+			"type": "string",
+			"description": "Path to directory with dtos.",
+			"default": "src/api"
 		}
 	},
-	"required": ["name"]
+	"required": ["dto"]
 }

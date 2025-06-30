@@ -1,0 +1,9 @@
+import { z } from 'zod';
+
+export const <%= classify(name) %>PropsSchema = z.object({
+	<% for (const prop of properties) { %>
+		<%= prop.name %>: null,
+	<% } %>
+});
+
+export type <%= classify(name) %>Props = z.infer<typeof <%= classify(name) %>PropsSchema>;
