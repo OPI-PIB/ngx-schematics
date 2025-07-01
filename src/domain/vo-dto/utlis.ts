@@ -1,6 +1,4 @@
-import { readdirSync } from 'fs';
-import { join } from 'path';
-
+import { Tree } from '@angular-devkit/schematics';
 import { PropertySignature, SyntaxKind, Type } from 'ts-morph';
 
 export function trimDefinition(value: string) {
@@ -90,19 +88,14 @@ export function isDeclaredNullable(prop: PropertySignature): boolean {
 	return typeNode.getText().includes('null');
 }
 
-export const getInterfaceFiles = (dir: string): string[] => {
+export const getInterfaceFiles = (tree: Tree, dtos: string): string[] => {
 	const files: string[] = [];
-	const walk = (currentPath: string) => {
-		const entries = readdirSync(currentPath, { withFileTypes: true });
-		for (const entry of entries) {
-			const fullPath = join(currentPath, entry.name);
-			if (entry.isDirectory()) {
-				walk(fullPath);
-			} else if (entry.isFile() && fullPath.endsWith('.ts')) {
-				files.push(fullPath);
-			}
+
+	tree.root.visit((filePath) => {
+		if (filePath.endsWith('.ts') && filePath.includes(dtos)) {
+			files.push(filePath);
 		}
-	};
-	walk(dir);
+	});
+
 	return files;
 };

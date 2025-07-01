@@ -3,6 +3,6 @@ export interface SchemaOptions {
 	name?: string;
 	project?: string;
 	path?: string;
-	dir: string;
+	dtos: string;
 	flat?: boolean;
 }

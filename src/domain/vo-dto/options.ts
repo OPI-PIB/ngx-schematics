@@ -10,5 +10,6 @@ export interface Options {
 	name: string;
 	path: Path;
 	flat: boolean;
-	dir: string;
+	dtos: string;
+	root: string;
 }
