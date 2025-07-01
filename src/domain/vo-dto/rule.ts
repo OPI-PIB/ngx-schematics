@@ -21,7 +21,7 @@ export default async function getRule(tree: Tree, _context: SchematicContext, _o
 	if (Is.defined(options)) {
 		movePath = options.flat ? normalize(options.path || '') : normalize(`${options.path}/${strings.dasherize(options.name)}`);
 
-		const allFiles = getInterfaceFiles(tree, 'src/api');
+		const allFiles = getInterfaceFiles(tree, options.dtos, options.projectRoot);
 
 		allFiles.forEach((filePath) => {
 			const buffer = tree.read(filePath);

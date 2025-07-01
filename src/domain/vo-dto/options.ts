@@ -11,5 +11,5 @@ export interface Options {
 	path: Path;
 	flat: boolean;
 	dtos: string;
-	root: string;
+	projectRoot: string;
 }

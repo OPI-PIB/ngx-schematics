@@ -39,7 +39,7 @@ export default async function getSetupOptions(tree: Tree, options: SchemaOptions
 			path: location.path,
 			flat: !!options.flat,
 			dtos: options.dtos,
-			root: options.dtos,
+			projectRoot: project.root,
 		};
 	}
 

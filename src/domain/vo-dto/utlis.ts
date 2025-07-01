@@ -1,3 +1,4 @@
+import { normalize } from '@angular-devkit/core';
 import { Tree } from '@angular-devkit/schematics';
 import { PropertySignature, SyntaxKind, Type } from 'ts-morph';
 
@@ -88,13 +89,19 @@ export function isDeclaredNullable(prop: PropertySignature): boolean {
 	return typeNode.getText().includes('null');
 }
 
-export const getInterfaceFiles = (tree: Tree, dtos: string): string[] => {
+export const getInterfaceFiles = (tree: Tree, dtos: string, project?: string): string[] => {
 	const files: string[] = [];
 
+	const safeProjectsSegment = project ? `/${project.replace(/^\/|\/$/g, '')}/` : null;
+	const safeDtosSegment = `/${dtos.replace(/^\/|\/$/g, '')}/`;
+
+	const prefix = project ? normalize(`${safeProjectsSegment}${safeDtosSegment}`) : normalize(safeDtosSegment);
+
 	tree.root.visit((filePath) => {
-		if (filePath.endsWith('.ts') && filePath.includes(dtos)) {
-			files.push(filePath);
-		}
+		if (!filePath.startsWith(prefix)) return;
+		if (!filePath.endsWith('.ts')) return;
+
+		files.push(filePath);
 	});
 
 	return files;
