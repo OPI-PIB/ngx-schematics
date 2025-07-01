@@ -133,13 +133,13 @@ export function isDeclaredNullable(prop: PropertySignature): boolean {
 export const getInterfaceFiles = (tree: Tree, dtos: string, project?: string): string[] => {
 	const files: string[] = [];
 
-	const safeProjectsSegment = project ? `/${project.replace(/^\/|\/$/g, '')}/` : null;
+	const safeProjectsSegment = project ? `/${project.replace(/^\/|\/$/g, '')}/` : '';
 	const safeDtosSegment = `/${dtos.replace(/^\/|\/$/g, '')}/`;
 
-	const prefix = project ? normalize(`${safeProjectsSegment}${safeDtosSegment}`) : normalize(safeDtosSegment);
+	const prefix = normalize(`${safeProjectsSegment}${safeDtosSegment}`);
 
-	tree.root.visit((filePath) => {
-		if (!filePath.startsWith(prefix)) return;
+	const dir = tree.getDir(prefix);
+	dir.visit((filePath) => {
 		if (!filePath.endsWith('.ts')) return;
 
 		files.push(filePath);
