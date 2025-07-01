@@ -1,4 +1,4 @@
-import { always, ValueObject } from '@opi_pib/ts-utility';
+import { always, Is, ValueObject } from '@opi_pib/ts-utility';
 
 import { <%= classify(name) %>Props } from './<%= dasherize(name) %>-props';
 import { is<%= classify(name) %>Props } from './is-<%= dasherize(name) %>-props';
@@ -15,7 +15,11 @@ export class <%= classify(name) %> extends ValueObject<<%= classify(name) %>Prop
 	}
 
 	static fromDto(dto: <%= dto %>) {
-		return this.create(dto);
+		return this.create({
+		<% for (const prop of properties) { %>
+			<%- prop.name.replace(/^['"]|['"]$/g, '') %>: <%- prop.typeConstructor.replace(/^['"]|['"]$/g, '') %>,
+		<% } %>
+		});
 	}
 
 <% for (const prop of properties) { %>
