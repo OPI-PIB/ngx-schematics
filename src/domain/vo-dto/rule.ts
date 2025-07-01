@@ -6,7 +6,7 @@ import { Project } from 'ts-morph';
 import { SchemaOptions } from './schema-options';
 import { Options, Prop } from './options';
 import getSetupOptions from './setup-options';
-import { extractPropertyMetadata, getInterfaceFiles, getTypeDef, isDeclaredNullable } from './utlis';
+import { extractPropertyMetadata, getInterfaceFiles, getTypeConstructor, getTypeDef, isDeclaredNullable } from './utlis';
 
 export default async function getRule(tree: Tree, _context: SchematicContext, _options: SchemaOptions): Promise<void | Rule> {
 	const project = new Project({
@@ -44,6 +44,13 @@ export default async function getRule(tree: Tree, _context: SchematicContext, _o
 			interfaces.push({
 				name: prop.getName(),
 				typeDef: getTypeDef({
+					type,
+					isArray,
+					isNullable: isDeclaredNullable(prop),
+					isOptional: prop.hasQuestionToken(),
+				}),
+				typeConstructor: getTypeConstructor({
+					name: prop.getName(),
 					type,
 					isArray,
 					isNullable: isDeclaredNullable(prop),

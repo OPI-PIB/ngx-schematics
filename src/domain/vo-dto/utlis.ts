@@ -82,6 +82,47 @@ export function getTypeDef(props: { type: string; isArray: boolean; isNullable: 
 	return typeDef;
 }
 
+function isPrimitive(type: unknown) {
+	return type === 'string' || type === 'number' || type === 'boolean';
+}
+
+export function getTypeConstructor(props: {
+	name: string;
+	type: string;
+	isArray: boolean;
+	isNullable: boolean;
+	isOptional: boolean;
+}): string {
+	const dto = `dto.${props.name}`;
+
+	let typeConstructor = '';
+
+	if (props.isNullable || props.isOptional) {
+		if (props.isArray) {
+			const arrayConstructor = isPrimitive(props.type) ? dto : `${dto}.map((x) => ${transformName(props.type)}.fromDto(x))`;
+			typeConstructor = `Is.defined(${dto}) ? ${arrayConstructor} : null`;
+		} else {
+			if (isPrimitive(props.type)) {
+				typeConstructor = `Is.defined(${dto}) ? ${dto} : null`;
+			} else {
+				typeConstructor = `Is.defined(${dto}) ? ${transformName(props.type)}.fromDto(${dto}) : null`;
+			}
+		}
+	} else {
+		if (props.isArray) {
+			typeConstructor = isPrimitive(props.type) ? dto : `${dto}.map((x) => ${transformName(props.type)}.fromDto(x))`;
+		} else {
+			if (isPrimitive(props.type)) {
+				typeConstructor = dto;
+			} else {
+				typeConstructor = `${transformName(props.type)}.fromDto(${dto})`;
+			}
+		}
+	}
+
+	return typeConstructor;
+}
+
 export function isDeclaredNullable(prop: PropertySignature): boolean {
 	const typeNode = prop.getTypeNode();
 	if (!typeNode) return false;
