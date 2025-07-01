@@ -93,7 +93,7 @@ export function getTypeConstructor(props: {
 	isNullable: boolean;
 	isOptional: boolean;
 }): string {
-	const dto = `dto.${props.name}`;
+	const dto = `dto.${props.name.replace(/^['"]|['"]$/g, '')}`;
 
 	let typeConstructor = '';
 
