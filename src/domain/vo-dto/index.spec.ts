@@ -1,8 +1,21 @@
 import * as path from 'path';
+import * as fs from 'fs';
 
 import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
 import { Schema as ApplicationOptions } from '@schematics/angular/application/schema';
 import { Schema as WorkspaceOptions } from '@schematics/angular/workspace/schema';
+
+const apiDir = path.resolve(__dirname, '../../api');
+
+const loadApiFiles = (tree: UnitTestTree, projectPath = '/projects/vo-dto/src/api') => {
+	const files = fs.readdirSync(apiDir);
+
+	for (const file of files) {
+		const filePath = path.join(apiDir, file);
+		const content = fs.readFileSync(filePath, 'utf-8');
+		tree.create(`${projectPath}/${file}`, content);
+	}
+};
 
 const workspaceOptions: WorkspaceOptions = {
 	name: 'workspace',
@@ -24,6 +37,8 @@ describe('vo-dto', () => {
 		testRunner = new SchematicTestRunner('schematics', collectionPath);
 		appTree = await testRunner.runExternalSchematic('@schematics/angular', 'workspace', workspaceOptions);
 		appTree = await testRunner.runExternalSchematic('@schematics/angular', 'application', appOptions, appTree);
+
+		loadApiFiles(appTree);
 	});
 
 	it('works', async () => {

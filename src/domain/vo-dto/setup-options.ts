@@ -26,6 +26,7 @@ function getPath(project: ProjectDefinition, path: string | undefined): string {
 export default async function getSetupOptions(tree: Tree, options: SchemaOptions): Promise<Maybe<Options>> {
 	const workspace: WorkspaceDefinition = await getWorkspace(tree);
 	const project: Maybe<ProjectDefinition> = getProject(workspace, options.project);
+
 	let setupOptions: Maybe<Options> = null;
 
 	if (Is.defined(project)) {
@@ -37,7 +38,8 @@ export default async function getSetupOptions(tree: Tree, options: SchemaOptions
 			name: location.name,
 			path: location.path,
 			flat: !!options.flat,
-			dir: options.dir,
+			dtos: options.dtos,
+			projectRoot: project.root,
 		};
 	}
 
