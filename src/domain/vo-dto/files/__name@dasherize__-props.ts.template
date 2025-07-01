@@ -1,9 +1,8 @@
 import { z } from 'zod';
 
 export const <%= classify(name) %>PropsSchema = z.object({
-<% for (const prop of properties) { %>
-	<%- prop.name.replace(/^['"]|['"]$/g, '') %>: <%= prop.typeDef %>,
-<% } %>
+	<% for (const prop of properties) { %><%- prop.name.replace(/^['"]|['"]$/g, '') %>: <%= prop.typeDef %>,
+	<% } %>
 });
 
 export type <%= classify(name) %>Props = z.infer<typeof <%= classify(name) %>PropsSchema>;

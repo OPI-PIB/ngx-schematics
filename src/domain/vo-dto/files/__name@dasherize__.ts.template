@@ -16,12 +16,10 @@ export class <%= classify(name) %> extends ValueObject<<%= classify(name) %>Prop
 
 	static fromDto(dto: <%= dto %>) {
 		return this.create({
-		<% for (const prop of properties) { %>
-			<%- prop.name.replace(/^['"]|['"]$/g, '') %>: <%- prop.typeConstructor.replace(/&gt;/g, '>').replace(/^['"]|['"]$/g, '') %>,
-		<% } %>
+			<% for (const prop of properties) { %><%- prop.name.replace(/^['"]|['"]$/g, '') %>: <%= prop.typeConstructor.replace(/&gt;/g, '>').replace(/^['"]|['"]$/g, '') %>,
+			<% } %>
 		});
 	}
-
 <% for (const prop of properties) { %>
 	get <%- prop.name.replace(/^['"]|['"]$/g, '') %>() {
 		return this.props.<%- prop.name.replace(/^['"]|['"]$/g, '') %>;
