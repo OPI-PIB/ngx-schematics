@@ -22,6 +22,11 @@
 			"description": "Create a value object from dto",
 			"factory": "./domain/vo-dto/index",
 			"schema": "./domain/vo-dto/schema.json"
+		},
+		"vo-enum": {
+			"description": "Create a value object from enum",
+			"factory": "./domain/vo-enum/index",
+			"schema": "./domain/vo-enum/schema.json"
 		}
 	}
 }

@@ -61,3 +61,17 @@ or
 ```typescript
 ng g vo-dto UserDto
 ```
+
+### value-object from Enum
+
+Generate files for value object from enum
+
+```typescript
+ng g @opi_pib/ngx-schematics:vo-enum --dto=EnumDto
+```
+
+or
+
+```typescript
+ng g vo-enum EnumDto
+```

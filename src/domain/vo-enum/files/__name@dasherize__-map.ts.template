@@ -1,0 +1,11 @@
+import { TranslationKey } from '@translations/translation-key';
+import { t } from '@translations/translation-marker';
+
+type <%= classify(name) %>Type = Record<<%= dto %>, {
+	translationKey: TranslationKey;
+}>;
+
+export const map<%= classify(name) %>: <%= classify(name) %>Type = {
+	<% for (const prop of properties) { %><%- prop.name.replace(/^['"]|['"]$/g, '') %>: { translationKey: t('<%= dto %>.<%- prop.name.replace(/^['"]|['"]$/g, '') %>'), },
+	<% } %>
+};
