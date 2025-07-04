@@ -1,0 +1,27 @@
+import { always, ValueObject } from '@opi_pib/ts-utility';
+
+import { <%= classify(name) %>Props } from './<%= dasherize(name) %>-props';
+import { is<%= classify(name) %>Props } from './is-<%= dasherize(name) %>-props';
+import { map<%= classify(name) %> } from './<%= dasherize(name) %>-map';
+
+export class <%= classify(name) %> extends ValueObject<<%= classify(name) %>Props> {
+	constructor(protected override readonly props: <%= classify(name) %>Props) {
+		super(props);
+	}
+
+	static create(props: <%= classify(name) %>Props): <%= classify(name) %> {
+		always(is<%= classify(name) %>Props(props), '');
+
+		return new <%= classify(name) %>(props);
+	}
+
+	static fromDto(dto: <%= dto %>) {
+		return this.create({
+			id: dto
+		});
+	}
+
+	get translationKey() {
+		return map<%- classify(name) %>[this.props.id].translationKey;
+	}
+}

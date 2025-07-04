@@ -1,0 +1,49 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"$id": "ValueObjectFromEnumSchematic",
+	"title": "Create a value object from enum",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"path": {
+			"type": "string",
+			"format": "path",
+			"description": "The path to create the schematic within.",
+			"visible": false,
+			"$default": {
+				"$source": "workingDirectory"
+			}
+		},
+		"dto": {
+			"description": "Specifies the name of the dto to generate from.",
+			"type": "string",
+			"$default": {
+				"$source": "argv",
+				"index": 0
+			},
+			"x-prompt": "What is the name of your dto?"
+		},
+		"name": {
+			"description": "Specifies the name of the generated files.",
+			"type": "string"
+		},
+		"project": {
+			"type": "string",
+			"description": "The name of the project.",
+			"$default": {
+				"$source": "projectName"
+			}
+		},
+		"flat": {
+			"type": "boolean",
+			"description": "When true, creates the new files at the top level of the current project.",
+			"default": false
+		},
+		"dtos": {
+			"type": "string",
+			"description": "Path to directory with dtos.",
+			"default": "src/api"
+		}
+	},
+	"required": ["dto"]
+}
