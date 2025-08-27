@@ -1,6 +1,6 @@
 {
 	"name": "@opi_pib/ngx-schematics",
-	"version": "20.1.8",
+	"version": "20.1.9",
 	"description": "schematics",
 	"scripts": {
 		"build": "tsc -p tsconfig.json",

@@ -5,6 +5,8 @@ import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/te
 import { Schema as ApplicationOptions } from '@schematics/angular/application/schema';
 import { Schema as WorkspaceOptions } from '@schematics/angular/workspace/schema';
 
+import { dasherize } from '../common/utils';
+
 const apiDir = path.resolve(__dirname, '../../api');
 
 const loadApiFiles = (tree: UnitTestTree, projectPath = '/projects/vo-dto/src/api') => {
@@ -149,5 +151,9 @@ describe('vo-dto', () => {
 		];
 
 		expect(expectedFiles.every((file) => tree.files.includes(file))).toBe(true);
+	});
+
+	it('dasherize', () => {
+		expect(dasherize('TypeK2')).toBe('type-k-2');
 	});
 });
