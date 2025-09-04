@@ -64,7 +64,7 @@ describe('vo-enum', () => {
 				`import { TranslationKey } from '@translations/translation-key';
 				import { t } from '@translations/translation-marker';
 				type EnumImplType = Record<EnumDto, { translationKey: TranslationKey; }>;
-				export const mapEnumImpl: EnumImplType = { NOT_INCLUDED: { translationKey: t('EnumDto.NOT_INCLUDED'), }, FULLY_INCLUDED: { translationKey: t('EnumDto.FULLY_INCLUDED'), }, };`
+				export const mapEnumImpl: EnumImplType = { 'NOT_INCLUDED': { translationKey: t('EnumDto.NOT_INCLUDED'), }, 'FULLY_INCLUDED': { translationKey: t('EnumDto.FULLY_INCLUDED'), }, };`
 			)
 		);
 

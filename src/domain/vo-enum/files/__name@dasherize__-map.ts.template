@@ -6,6 +6,6 @@ type <%= classify(name) %>Type = Record<<%= dto %>, {
 }>;
 
 export const map<%= classify(name) %>: <%= classify(name) %>Type = {
-	<% for (const prop of properties) { %><%- prop.name.replace(/^['"]|['"]$/g, '') %>: { translationKey: t('<%= dto %>.<%- prop.name.replace(/^['"]|['"]$/g, '') %>'), },
+	<% for (const prop of properties) { %>'<%- prop.name.replace(/^['"]|['"]$/g, '') %>': { translationKey: t('<%= dto %>.<%- prop.name.replace(/^['"]|['"]$/g, '') %>'), },
 	<% } %>
 };
