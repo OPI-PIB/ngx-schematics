@@ -1,15 +1,18 @@
-import { Location, parseName } from '@schematics/angular/utility/parse-name';
-import { SchematicsException, Tree } from '@angular-devkit/schematics';
 import { normalize } from '@angular-devkit/core';
-import { getWorkspace } from '@schematics/angular/utility/workspace';
 import { ProjectDefinition, WorkspaceDefinition } from '@angular-devkit/core/src/workspace';
+import { SchematicsException, Tree } from '@angular-devkit/schematics';
 import { Is, Maybe } from '@opi_pib/ts-utility';
+import { Location, parseName } from '@schematics/angular/utility/parse-name';
+import { getWorkspace } from '@schematics/angular/utility/workspace';
 
 import { Options } from './options';
 import { SchemaOptions } from './schema-options';
 import { transformName } from './utlis';
 
-function getProject(workspace: WorkspaceDefinition, projectName = [...workspace.projects.keys()][0]): Maybe<ProjectDefinition> {
+function getProject(
+	workspace: WorkspaceDefinition,
+	projectName = [...workspace.projects.keys()][0]
+): Maybe<ProjectDefinition> {
 	const project: Maybe<ProjectDefinition> = workspace.projects.get(projectName);
 
 	if (!project) {
@@ -39,7 +42,7 @@ export default async function getSetupOptions(tree: Tree, options: SchemaOptions
 			path: location.path,
 			flat: !!options.flat,
 			dtos: options.dtos,
-			projectRoot: project.root,
+			projectRoot: project.root
 		};
 	}
 

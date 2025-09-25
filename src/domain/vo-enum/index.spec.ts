@@ -1,5 +1,5 @@
-import * as path from 'path';
 import * as fs from 'fs';
+import * as path from 'path';
 
 import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
 import { Schema as ApplicationOptions } from '@schematics/angular/application/schema';
@@ -24,11 +24,11 @@ function normalize(value: string) {
 const workspaceOptions: WorkspaceOptions = {
 	name: 'workspace',
 	newProjectRoot: 'projects',
-	version: '20.0.0',
+	version: '20.0.0'
 };
 
 const appOptions: ApplicationOptions = {
-	name: 'vo-enum',
+	name: 'vo-enum'
 };
 
 const collectionPath: string = path.join(__dirname, '../../collection.json');
@@ -53,7 +53,7 @@ describe('vo-enum', () => {
 			'/projects/vo-enum/src/enum-impl/is-enum-impl-props.ts',
 			'/projects/vo-enum/src/enum-impl/enum-impl-props.ts',
 			'/projects/vo-enum/src/enum-impl/enum-impl.ts',
-			'/projects/vo-enum/src/enum-impl/index.ts',
+			'/projects/vo-enum/src/enum-impl/index.ts'
 		];
 
 		expect(expectedFiles.every((file) => tree.files.includes(file))).toBe(true);
@@ -108,7 +108,7 @@ describe('vo-enum', () => {
 			'/projects/vo-enum/src/custom/enum-impl/is-enum-impl-props.ts',
 			'/projects/vo-enum/src/custom/enum-impl/enum-impl-props.ts',
 			'/projects/vo-enum/src/custom/enum-impl/enum-impl.ts',
-			'/projects/vo-enum/src/custom/enum-impl/index.ts',
+			'/projects/vo-enum/src/custom/enum-impl/index.ts'
 		];
 
 		expect(expectedFiles.every((file) => tree.files.includes(file))).toBe(true);

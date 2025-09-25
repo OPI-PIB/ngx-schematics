@@ -1,5 +1,5 @@
-import * as path from 'path';
 import * as fs from 'fs';
+import * as path from 'path';
 
 import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
 import { Schema as ApplicationOptions } from '@schematics/angular/application/schema';
@@ -26,11 +26,11 @@ function normalize(value: string) {
 const workspaceOptions: WorkspaceOptions = {
 	name: 'workspace',
 	newProjectRoot: 'projects',
-	version: '20.0.0',
+	version: '20.0.0'
 };
 
 const appOptions: ApplicationOptions = {
-	name: 'vo-dto',
+	name: 'vo-dto'
 };
 
 const collectionPath: string = path.join(__dirname, '../../collection.json');
@@ -54,7 +54,7 @@ describe('vo-dto', () => {
 			'/projects/vo-dto/src/user-impl/is-user-impl-props.ts',
 			'/projects/vo-dto/src/user-impl/user-impl-props.ts',
 			'/projects/vo-dto/src/user-impl/user-impl.ts',
-			'/projects/vo-dto/src/user-impl/index.ts',
+			'/projects/vo-dto/src/user-impl/index.ts'
 		];
 
 		expect(expectedFiles.every((file) => tree.files.includes(file))).toBe(true);
@@ -147,7 +147,7 @@ describe('vo-dto', () => {
 			'/projects/vo-dto/src/custom/user-impl/is-user-impl-props.ts',
 			'/projects/vo-dto/src/custom/user-impl/user-impl-props.ts',
 			'/projects/vo-dto/src/custom/user-impl/user-impl.ts',
-			'/projects/vo-dto/src/custom/user-impl/index.ts',
+			'/projects/vo-dto/src/custom/user-impl/index.ts'
 		];
 
 		expect(expectedFiles.every((file) => tree.files.includes(file))).toBe(true);

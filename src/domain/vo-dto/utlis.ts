@@ -50,7 +50,9 @@ export function extractPropertyMetadata(
 
 	if (typeNode.getKind() === SyntaxKind.UnionType) {
 		const union = typeNode.asKindOrThrow(SyntaxKind.UnionType);
-		const nonNullType = union.getTypeNodes().find((node) => node.getText() !== 'null' && node.getText() !== 'undefined');
+		const nonNullType = union
+			.getTypeNodes()
+			.find((node) => node.getText() !== 'null' && node.getText() !== 'undefined');
 		name = nonNullType?.getText() ?? 'unknown';
 	}
 
@@ -58,11 +60,16 @@ export function extractPropertyMetadata(
 
 	return {
 		type: trimDefinition(name),
-		isArray,
+		isArray
 	};
 }
 
-export function getTypeDef(props: { type: string; isArray: boolean; isNullable: boolean; isOptional: boolean }): string {
+export function getTypeDef(props: {
+	type: string;
+	isArray: boolean;
+	isNullable: boolean;
+	isOptional: boolean;
+}): string {
 	let typeDef = '';
 
 	if (props.type === 'string' || props.type === 'number' || props.type === 'boolean') {
@@ -99,7 +106,9 @@ export function getTypeConstructor(props: {
 
 	if (props.isNullable || props.isOptional) {
 		if (props.isArray) {
-			const arrayConstructor = isPrimitive(props.type) ? dto : `${dto}.map((x) => ${transformName(props.type)}.fromDto(x))`;
+			const arrayConstructor = isPrimitive(props.type)
+				? dto
+				: `${dto}.map((x) => ${transformName(props.type)}.fromDto(x))`;
 			typeConstructor = `Is.defined(${dto}) ? ${arrayConstructor} : null`;
 		} else {
 			if (isPrimitive(props.type)) {
