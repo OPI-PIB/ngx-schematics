@@ -1,17 +1,32 @@
-import { Rule, SchematicContext, Tree, apply, url, move, mergeWith, applyTemplates, MergeStrategy } from '@angular-devkit/schematics';
 import { normalize, strings } from '@angular-devkit/core';
+import {
+	apply,
+	applyTemplates,
+	MergeStrategy,
+	mergeWith,
+	move,
+	Rule,
+	SchematicContext,
+	Tree,
+	url
+} from '@angular-devkit/schematics';
 import { Is, Maybe } from '@opi_pib/ts-utility';
 import { Project, SyntaxKind } from 'ts-morph';
 
-import { SchemaOptions } from './schema-options';
-import { Options, Prop } from './options';
-import getSetupOptions from './setup-options';
-import { getInterfaceFiles } from './utlis';
 import { dasherizeWithNumbers } from '../common/utils';
 
-export default async function getRule(tree: Tree, _context: SchematicContext, _options: SchemaOptions): Promise<void | Rule> {
+import { Options, Prop } from './options';
+import { SchemaOptions } from './schema-options';
+import getSetupOptions from './setup-options';
+import { getInterfaceFiles } from './utlis';
+
+export default async function getRule(
+	tree: Tree,
+	_context: SchematicContext,
+	_options: SchemaOptions
+): Promise<void | Rule> {
 	const project = new Project({
-		useInMemoryFileSystem: true,
+		useInMemoryFileSystem: true
 	});
 
 	const options: Maybe<Options> = await getSetupOptions(tree, { ..._options });
@@ -20,7 +35,9 @@ export default async function getRule(tree: Tree, _context: SchematicContext, _o
 	const interfaces: Prop[] = [];
 
 	if (Is.defined(options)) {
-		movePath = options.flat ? normalize(options.path || '') : normalize(`${options.path}/${strings.dasherize(options.name)}`);
+		movePath = options.flat
+			? normalize(options.path || '')
+			: normalize(`${options.path}/${strings.dasherize(options.name)}`);
 
 		const allFiles = getInterfaceFiles(tree, options.dtos, options.projectRoot);
 
@@ -43,7 +60,7 @@ export default async function getRule(tree: Tree, _context: SchematicContext, _o
 			const properties = unionType.getTypeNodes();
 			properties.forEach((prop) => {
 				interfaces.push({
-					name: prop.getText().replace(/'/g, ''),
+					name: prop.getText().replace(/'/g, '')
 				});
 			});
 		}
@@ -53,9 +70,9 @@ export default async function getRule(tree: Tree, _context: SchematicContext, _o
 		applyTemplates({
 			...strings,
 			...options,
-			properties: interfaces,
+			properties: interfaces
 		}),
-		move(movePath),
+		move(movePath)
 	]);
 
 	const rule = mergeWith(templateSource, MergeStrategy.Default);

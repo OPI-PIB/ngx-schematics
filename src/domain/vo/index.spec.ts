@@ -7,11 +7,11 @@ import { Schema as WorkspaceOptions } from '@schematics/angular/workspace/schema
 const workspaceOptions: WorkspaceOptions = {
 	name: 'workspace',
 	newProjectRoot: 'projects',
-	version: '20.0.0',
+	version: '20.0.0'
 };
 
 const appOptions: ApplicationOptions = {
-	name: 'vo',
+	name: 'vo'
 };
 
 const collectionPath: string = path.join(__dirname, '../../collection.json');
@@ -33,7 +33,7 @@ describe('vo', () => {
 			'/projects/vo/src/uuid/is-uuid-props.ts',
 			'/projects/vo/src/uuid/uuid-props.ts',
 			'/projects/vo/src/uuid/uuid.ts',
-			'/projects/vo/src/uuid/index.ts',
+			'/projects/vo/src/uuid/index.ts'
 		];
 
 		expect(expectedFiles.every((file) => tree.files.includes(file))).toBe(true);
@@ -46,7 +46,7 @@ describe('vo', () => {
 			'/projects/vo/src/custom/uuid/is-uuid-props.ts',
 			'/projects/vo/src/custom/uuid/uuid-props.ts',
 			'/projects/vo/src/custom/uuid/uuid.ts',
-			'/projects/vo/src/custom/uuid/index.ts',
+			'/projects/vo/src/custom/uuid/index.ts'
 		];
 
 		expect(expectedFiles.every((file) => tree.files.includes(file))).toBe(true);
