@@ -12,9 +12,7 @@ You can add schematics to angular.json
 
 ```
 	"cli": {
-		"schematicCollections": [
-			"@opi_pib/ngx-schematics"
-		]
+		"schematicCollections": ["@schematics/angular", "@opi_pib/ngx-schematics"]
 	}
 ```
 

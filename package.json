@@ -1,15 +1,19 @@
 {
 	"name": "@opi_pib/ngx-schematics",
-	"version": "20.1.12",
+	"version": "20.1.13",
 	"description": "schematics",
 	"schematics": "./src/collection.json",
 	"scripts": {
+		"prepare": "husky",
 		"build": "tsc -p tsconfig.json",
 		"test": "jest --detectOpenHandles"
 	},
 	"keywords": [
 		"schematics"
 	],
+	"lint-staged": {
+		"*": "prettier -u -w"
+	},
 	"prettier": "@opi_pib/prettier-config-base/ng",
 	"author": "Dawid Lubowiecki",
 	"license": "MIT",
@@ -28,7 +32,9 @@
 		"@opi_pib/prettier-config-base": "^1.0.0",
 		"@types/jest": "^30.0.0",
 		"@types/node": "^24.0.0",
+		"husky": "^9.1.7",
 		"jest": "^30.0.0",
+		"lint-staged": "^16.2.0",
 		"ts-jest": "^29.0.0"
 	},
 	"repository": {
