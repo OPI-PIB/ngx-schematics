@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema",
-	"$id": "InitSchematic",
+	"id": "InitSchematic",
 	"title": "Initialize the @opi_pib/ngx-schematics plugin",
 	"type": "object",
 	"additionalProperties": false,
