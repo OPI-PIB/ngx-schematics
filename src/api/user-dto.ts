@@ -1,4 +1,4 @@
-import { AdressDto } from './AdressDto';
+import { AdressDto } from './adress-dto';
 
 export interface UserDto {
 	firstname: string;
@@ -13,7 +13,6 @@ export interface UserDto {
 	addressOptional?: AdressDto;
 	keywords: string[];
 	friends: UserDto[];
-	// eslint-disable-next-line @typescript-eslint/array-type
 	friendsOptional?: Array<UserDto>;
 	friendsNullable: UserDto[] | null;
 }

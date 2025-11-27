@@ -1,6 +1,6 @@
 import { js, ts } from '@opi_pib/eslint-config-base';
 
-const ignores = ['arc/api'];
+const ignores = ['src/api/**'];
 
 /** @type {import("eslint").Linter.Config[]} */
 export default [

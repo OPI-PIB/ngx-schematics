@@ -1,9 +1,8 @@
 import { normalize } from '@angular-devkit/core';
-import { ProjectDefinition, WorkspaceDefinition } from '@angular-devkit/core/src/workspace';
 import { SchematicsException, Tree } from '@angular-devkit/schematics';
 import { Is, Maybe } from '@opi_pib/ts-utility';
 import { Location, parseName } from '@schematics/angular/utility/parse-name';
-import { getWorkspace } from '@schematics/angular/utility/workspace';
+import { getWorkspace, ProjectDefinition, WorkspaceDefinition } from '@schematics/angular/utility/workspace';
 
 import { Options } from './options';
 import { SchemaOptions } from './schema-options';
