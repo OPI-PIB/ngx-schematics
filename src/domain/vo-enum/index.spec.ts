@@ -80,7 +80,7 @@ describe('vo-enum', () => {
 		expect(normalize(contentProps)).toContain(
 			normalize(
 				`import { z } from 'zod';
-				export const EnumImplPropsSchema = z.object({ id: z.nativeEnum(EnumDto) }); export type EnumImplProps = z.infer<typeof EnumImplPropsSchema>;`
+				export const EnumImplPropsSchema = z.object({ id: z.enum(EnumDto) }); export type EnumImplProps = z.infer<typeof EnumImplPropsSchema>;`
 			)
 		);
 
